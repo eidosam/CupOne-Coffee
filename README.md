@@ -22,24 +22,24 @@ Initiate an instanse object of DataFetch class with list of URLs
     dataFetchObj = new DataFetch( listOfUrls )
 
 Set the configurations of retry-attempts
-```
+```coffeescript
     dataFetch.setConfigurations
         maxAttempts: num
         retryDelay: num_ms 
 ```
 
 Start request data from URLs and pass the results to the data-processing function
-```
+```coffeescript
     dataFetchObj.startFetch processDataFunction
 ```
 
 Inside the processDataFunction initiate new instanse object of TextAnalyzer
-```
+```coffeescript
     textAnalyzerObj = new TextAnalyzer( textToAnalyze )
 ```
 
 Set the configurations of analyzing text-file
-```
+```coffeescript
     textAnalyzerObj.setConfigurations
         topWordsCount: num
         # the number of top words wanted
@@ -54,7 +54,7 @@ Set the configurations of analyzing text-file
 ```
 
 Get the top-N-words
-```
+```coffeescript
     results = textAnalyzerObj.getTopNWords()
     # the result is array of pairs word/count
 ```
