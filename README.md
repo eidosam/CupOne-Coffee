@@ -19,43 +19,42 @@ This class is responsible of analyzing the text and figuring out the mot occurre
 
 ## How to use:
 Initiate an instanse object of DataFetch class with list of URLs 
-    var dataFetchObj = new DataFetch( listOfUrls ); 
+    dataFetchObj = new DataFetch( listOfUrls )
 
 Set the configurations of retry-attempts
-```js
-    dataFetch.setConfigurations({ 
-        maxAttempts: num,  retryDelay: num_ms 
-    });
+```
+    dataFetch.setConfigurations
+        maxAttempts: num
+        retryDelay: num_ms 
 ```
 
 Start request data from URLs and pass the results to the data-processing function
-```js
-    dataFetchObj.startFetch( processDataFunction );
+```
+    dataFetchObj.startFetch processDataFunction
 ```
 
 Inside the processDataFunction initiate new instanse object of TextAnalyzer
-```js
-    var textAnalyzerObj = new TextAnalyzer( textToAnalyze );
+```
+    textAnalyzerObj = new TextAnalyzer( textToAnalyze )
 ```
 
 Set the configurations of analyzing text-file
-```js
-    textAnalyzerObj.setConfigurations({
-        topWordsCount: num, 
-        // the number of top words wanted
-        excludeCommonWords: booleanValue,
-        // strategy of dealing with common words
-        excludedWords: exludedWordsString,
-        // excluded words from compariion
-        excludeNumbers: booleanValue,
-        // strategy of dealing with numbers
-        fairStrategy: booleanValue,
-        // how to deal with words have the same number of occurrences
-    });
+```
+    textAnalyzerObj.setConfigurations
+        topWordsCount: num
+        # the number of top words wanted
+        excludeCommonWords: booleanValue
+        # strategy of dealing with common words
+        excludedWords: exludedWordsString
+        # excluded words from compariion
+        excludeNumbers: booleanValue
+        # strategy of dealing with numbers
+        fairStrategy: booleanValue
+        # how to deal with words have the same number of occurrences
 ```
 
 Get the top-N-words
-```js
-    var results = textAnalyzerObj.getTopNWords();
-    // the result is array of pairs word/count
+```
+    results = textAnalyzerObj.getTopNWords()
+    # the result is array of pairs word/count
 ```
